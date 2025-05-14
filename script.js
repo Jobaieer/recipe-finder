@@ -6,6 +6,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalContent = document.getElementById("modalContent");
   const closeModal = document.getElementById("closeModal");
 
+  const mobileMenu = document.getElementById("mobileMenu");
+  const menuOpen = document.getElementById("menuOpen");
+  const menuClose = document.getElementById("menuClose");
+
+  menuOpen.addEventListener("click", () => {
+    mobileMenu.classList.remove("hidden");
+  });
+
+  menuClose.addEventListener("click", () => {
+    mobileMenu.classList.add("hidden");
+  });
+
   // Show modal function
   function showModal(recipe) {
     modalContent.innerHTML = `
@@ -14,6 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
     <p class="mb-2"><strong>Description:</strong> ${recipe.description}</p>
     <p class="mb-2"><strong>Ingredients:</strong> ${recipe.ingredients}</p>
     <p><strong>Instructions:</strong> ${recipe.instructions}</p>
+    <p><strong>Preparation Time:</strong> ${recipe.prepTime} minutes</p>
+    <p><strong>Cooking Time:</strong> ${recipe.cookTime} minutes</p>
+    <p><strong>Meal Type:</strong> ${recipe.mealType}</p>
   `;
     modal.classList.remove("hidden");
   }
